@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- validation script -->
+  <script src="main.js"></script>
+  <!-- Title -->
+  <title>Guestbook</title>
+</head>
+<body>
+
+  <div class="jumbotron">
+    <h1>Guestbook</h1>
+  </div>
+
+  <div class="container border rounded p-3 mb-4">
+    <form onsubmit="return validateForm()">
+      <!-- Contact Info -->
+      <legend class="d-md-inline pt-2">Contact Info: </legend>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="fname">First Name</label>
+          <input id="fname" type="text" class="form-control">
+          <span class="err" id="err-fname"></span>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lname">Last Name</label>
+          <input id="lname" type="text" class="form-control">
+          <span class="err" id="err-lname"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="job">Job Title</label>
+          <input id="job" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="company">Company</label>
+          <input id="company" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="linkedin">LinkedIn URL</label>
+          <input id="linkedin" type="text" class="form-control">
+          <span class="err" id="err-linkedin"></span>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email Address</label>
+          <input id="email" type="text" class="form-control">
+          <span class="err" id="err-email"></span>
+        </div>
+      </div>
+
+      <!-- How we met -->
+      <legend class="d-md-inline pt-2">How we met</legend>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="mtype">How did we meet?</label>
+          <select id="mtype" class="form-control" onchange="showOther(this.value)">
+            <option value="" disabled selected>Select how you met.</option>
+            <option value="meetup">Meetup</option>
+            <option value="job">Job</option>
+            <option value="travel">Travel</option>
+            <option value="no">We haven't met yet</option>
+            <option value="other">Other (please specify)</option>
+          </select>
+          <span class="err" id="err-mtype"></span>
+        </div>
+        <div class="form-group col-md-6 hide" id="other-type">
+          <label for="other">Other (please specify)</label>
+          <input id="other" type="text" class="form-control">
+          <span class="err" id="err-other"></span>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" class="form-control"></textarea>
+        </div>
+      </div>
+
+      <!-- Mailing List -->
+      <div class="form-check my-2">
+        <input type="checkbox" class="form-check-input" id="mailing-list" onchange="showMailingListType(this.checked)">
+        <label class="form-check-label" for="mailing-list">Please add me to your mailing list</label>
+      </div>
+      <div id="mailing-list-type" class="hide">
+        <label>Please choose adn email format:</label>
+        <div>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="email-format" value="html">HTML
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="email-format" value="text">Text
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-auto ml-auto">
+          <button class="btn btn-primary btn-dark px-4" type="submit">Submit</button></div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

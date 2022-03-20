@@ -1,0 +1,11 @@
+.err {
+  color: red;
+}
+
+.visible {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
